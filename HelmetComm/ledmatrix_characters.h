@@ -484,6 +484,6 @@ namespace LedMatrix{
              0b00110110,
              0b01000001,
              0b00000000};
-    }
+    };
 }
 #endif // DEFINEDCHARACTERS_H

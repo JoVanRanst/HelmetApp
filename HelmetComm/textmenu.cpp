@@ -1,6 +1,5 @@
 #include "textmenu.h"
 #include "ui_textmenu.h"
-#include "ledmatrix_chardefs.h"
 #include <QMessageBox>
 #include <QString>
 
