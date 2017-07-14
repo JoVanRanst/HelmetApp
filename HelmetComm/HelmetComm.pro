@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     soundmenu.cpp \
     optionsmenu.cpp \
     animationcreation.cpp \
-    ledmatrix_main.cpp
+    ledmatrix_main.cpp \
+    ledmatrix_animation.cpp
 
 HEADERS  += mainmenu.h \
     animationmenu.h \

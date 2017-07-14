@@ -20,15 +20,11 @@ class AnimationCreation : public QWidget
 
         /// private methods
     private:
-        void ScrollPage(bool NextPage);
         void UpdatePageCounter();
         /// private members
     private:
-        std::vector<LedMatrix::Page> Pages;
-        unsigned int PageNmbr;
         Ui::AnimationCreation *ui;
         LedMatrix::LedMatrix_main *matrix;
-        QTimer *timer;
 
         /// Signals and slots
     signals:
@@ -43,7 +39,7 @@ class AnimationCreation : public QWidget
         void matrixPageSave();
         void matrixPageAdd();
         void matrixPageRemove();
-        void matrixPageRun();
+        void matrixRun();
         void matrixClear();
 };
 

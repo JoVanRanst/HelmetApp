@@ -33,6 +33,13 @@ LedMatrix::LedMatrix_main::LedMatrix_main(bool BlockUserInput)
             }
         }
     }
+
+    AnimationRunning = false;
+    LoopAnimation = false;
+    period_timer_ms = 0;
+    interval_timer = new QTimer;
+    interval_timer->setSingleShot(true);
+    connect(interval_timer, SIGNAL(timeout()), this, SLOT(UpdateAnimationState()));
 }
 
 void LedMatrix::LedMatrix_main::BlockUserInput()
@@ -47,7 +54,7 @@ void LedMatrix::LedMatrix_main::Set(Page *matrixData)
     {
         for(int j = 0; j<MATRIX_COLLUMS; j++) /// Collums
         {
-            FullMatrix[i][j]->setChecked(matrixData->elem[i][j]);
+            FullMatrix[i][j]->setChecked(matrixData->elem[j][i]);
         }
     }
 }
@@ -58,7 +65,7 @@ void LedMatrix::LedMatrix_main::Get(Page *matrixData)
     {
         for(int j = 0; j<MATRIX_COLLUMS; j++) /// Collums
         {
-            matrixData->elem[i][j] = FullMatrix[i][j]->isChecked();
+            matrixData->elem[j][i] = FullMatrix[i][j]->isChecked();
         }
     }
 }

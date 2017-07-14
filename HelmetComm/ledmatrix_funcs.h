@@ -17,9 +17,6 @@ class CharacterConversion
         static bool StringToVector(QString text, std::vector<std::bitset<8>> outputVector) {
             return false;
         }
-
-    private:
-        static Matrix
 };
 
 #endif // CHARACTERCOVERSION_H
