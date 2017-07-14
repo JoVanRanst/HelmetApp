@@ -5,7 +5,7 @@
 #include <vector>
 #include <QString>
 #include "ledmatrix_main.h"
-#include "ledmatrix_chardefs.h"
+#include "ledmatrix_characters.h"
 
 class CharacterConversion
 {

@@ -39,10 +39,9 @@ HEADERS  += mainmenu.h \
     soundmenu.h \
     optionsmenu.h \
     animationcreation.h \
-    matrixcharacters.h \
     ledmatrix_main.h \
-    ledmatrix_chardefs.h \
-    ledmatrix_funcs.h
+    ledmatrix_funcs.h \
+    ledmatrix_characters.h
 
 FORMS    += mainmenu.ui \
     animationmenu.ui \

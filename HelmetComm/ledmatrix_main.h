@@ -7,6 +7,8 @@
 #include <QGridLayout>
 #include <QPushButton>
 
+#include "ledmatrix_characters.h"
+
 #define MATRIX_ROWS     8
 #define MATRIX_COLLUMS  40
 
@@ -15,7 +17,7 @@ namespace LedMatrix {
         std::bitset<MATRIX_ROWS> elem[MATRIX_COLLUMS];
     };
 
-    class LedMatrix_main: public QGridLayout
+    class LedMatrix_main: public QGridLayout, public LedMatrix_Characters
     {
         Q_OBJECT
     public:
