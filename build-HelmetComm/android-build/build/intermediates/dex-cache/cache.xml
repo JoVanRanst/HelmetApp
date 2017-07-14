@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\JVRD\Qt\build-HelmetComm\android-build\libs\QtAndroid-bundled.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="bdff9a5bf372d6b765fb2f7637768f8e1db81a72">
+        <dex dex="D:\JVRD\Qt\build-HelmetComm\android-build\build\intermediates\pre-dexed\debug\QtAndroid-bundled-32f5458495456ab81a51989c4dd1699cf43f1c18.jar" />
+    </item>
+
+</items>
