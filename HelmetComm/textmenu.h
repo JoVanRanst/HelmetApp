@@ -2,8 +2,9 @@
 #define TEXTMENU_H
 
 #include <QWidget>
+#include <QTimer>
 
-#include "ledmatrix.h"
+#include "ledmatrix_main.h"
 
 namespace Ui {
 class TextMenu;
@@ -26,11 +27,11 @@ public:
 private:
     TextMenu();
     //~TextMenu();
-    void AssembleDisplayBuffer();
+    void UpdateState(void);
 
 private:
-    Ui::TextMenu *ui;
-    LedMatrix *ui_display;
+    Ui::TextMenu                *ui;
+    LedMatrix::LedMatrix_main   *ui_display;
 
 signals:
     void exitMenu(void);
@@ -41,6 +42,8 @@ public slots:
 private slots:
     void uploadTextPressed(void);
     void scrollORsequence(bool Status);
+    void AssembleDisplayBuffer(QString text);
+
 };
 
 #endif // TEXTMENU_H

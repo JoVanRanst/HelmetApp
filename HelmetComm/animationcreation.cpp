@@ -8,13 +8,7 @@ AnimationCreation::AnimationCreation(QWidget *parent) :
     ui(new Ui::AnimationCreation)
 {
     ui->setupUi(this);
-    this->setStyleSheet("QPushButton{border-width: 1px;\
-                        border-style: none;\
-                        border-radius: 1;\
-                        padding: 1px;\
-                        padding-left: 1px;\
-                        padding-right: 1px;}");
-    matrix = new LedMatrix();
+    matrix = new LedMatrix::LedMatrix_main();
     ui->widget->setLayout(matrix);
 
     PageNmbr = 0;
@@ -63,7 +57,7 @@ void AnimationCreation::ScrollPage(bool NextPage)
         }
     }
 
-    std::vector<Page>::iterator it = Pages.begin();
+    std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     if(PageNmbr <= Pages.size() && PageNmbr != 0) {
         matrix->Set(&(*(it+(PageNmbr-1))));
     } else {
@@ -93,7 +87,7 @@ void AnimationCreation::matrixPageNext()
 
 void AnimationCreation::matrixPageSave()
 {
-    std::vector<Page>::iterator it = Pages.begin();
+    std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     if(PageNmbr <= Pages.size() && PageNmbr != 0) {
         matrix->Get(&(*(it+(PageNmbr-1))));
         UpdatePageCounter();
@@ -104,8 +98,8 @@ void AnimationCreation::matrixPageSave()
 
 void AnimationCreation::matrixPageAdd()
 {
-    Page Buffer;
-    std::vector<Page>::iterator it = Pages.begin();
+    LedMatrix::Page Buffer;
+    std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     matrix->Get(&Buffer);
 
     if(Pages.empty()) {
@@ -122,7 +116,7 @@ void AnimationCreation::matrixPageAdd()
 
 void AnimationCreation::matrixPageRemove()
 {
-    std::vector<Page>::iterator it = Pages.begin();
+    std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     if(PageNmbr <= Pages.size() && PageNmbr != 0){
         Pages.erase(it+PageNmbr-1);
 

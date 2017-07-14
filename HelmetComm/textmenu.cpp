@@ -1,6 +1,6 @@
 #include "textmenu.h"
 #include "ui_textmenu.h"
-#include "definedcharacters.h"
+#include "ledmatrix_chardefs.h"
 #include <QMessageBox>
 #include <QString>
 
@@ -8,15 +8,16 @@ TextMenu::TextMenu() :
     ui(new Ui::TextMenu)
 {
     ui->setupUi(this);
-    ui_display = new LedMatrix;
+    ui_display = new LedMatrix::LedMatrix_main(true);
     ui->widget->setLayout(ui_display);
 
-    connect(ui->pushReturn,   SIGNAL(pressed()),     this, SLOT(exit()));
-    connect(ui->uploadButton, SIGNAL(pressed()),     this, SLOT(uploadTextPressed()));
-    connect(ui->scrollButton, SIGNAL(toggled(bool)), this, SLOT(scrollORsequence(bool)));
+    connect(ui->pushReturn,   SIGNAL(pressed()),            this, SLOT(exit()));
+    connect(ui->uploadButton, SIGNAL(pressed()),            this, SLOT(uploadTextPressed()));
+    connect(ui->scrollButton, SIGNAL(toggled(bool)),        this, SLOT(scrollORsequence(bool)));
+    connect(ui->Textinput,    SIGNAL(textChanged(QString)), this, SLOT(AssembleDisplayBuffer(QString)));
 }
 
-void TextMenu::AssembleDisplayBuffer(void)
+void TextMenu::AssembleDisplayBuffer(QString text)
 {
 
 }
@@ -54,8 +55,14 @@ void TextMenu::scrollORsequence(bool Status)
     else
         ui->scrollButton->setText("DISPLAY/SCROLL");
 
+}
+
+//// State checker
+void TextMenu::UpdateState(void)
+{
 
 }
+
 
 void TextMenu::exit(void)
 {

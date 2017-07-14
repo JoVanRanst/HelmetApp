@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <vector>
-#include "ledmatrix.h"
+#include "ledmatrix_main.h"
 
 namespace Ui {
     class AnimationCreation;
@@ -24,10 +24,10 @@ class AnimationCreation : public QWidget
         void UpdatePageCounter();
         /// private members
     private:
-        std::vector<Page> Pages;
+        std::vector<LedMatrix::Page> Pages;
         unsigned int PageNmbr;
         Ui::AnimationCreation *ui;
-        LedMatrix *matrix;
+        LedMatrix::LedMatrix_main *matrix;
         QTimer *timer;
 
         /// Signals and slots
