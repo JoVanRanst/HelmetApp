@@ -16,11 +16,6 @@ TextMenu::TextMenu() :
     connect(ui->Textinput,    SIGNAL(textChanged(QString)), this, SLOT(AssembleDisplayBuffer(QString)));
 }
 
-void TextMenu::AssembleDisplayBuffer(QString text)
-{
-
-}
-
 /// SLOTS
 void TextMenu::uploadTextPressed(void)
 {
@@ -50,9 +45,14 @@ void TextMenu::uploadTextPressed(void)
 void TextMenu::scrollORsequence(bool Status)
 {
     if(Status)
-        ui->scrollButton->setText("DISPLAY ONE AT A TIME");
+        ui->scrollButton->setText("WORD FOR WORD");
     else
-        ui->scrollButton->setText("DISPLAY/SCROLL");
+        ui->scrollButton->setText("MARQUEE MODE");
+
+}
+
+void TextMenu::AssembleDisplayBuffer(QString text)
+{
 
 }
 

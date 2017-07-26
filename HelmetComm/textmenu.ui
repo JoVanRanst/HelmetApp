@@ -132,7 +132,7 @@
    <item row="4" column="1">
     <widget class="QPushButton" name="scrollButton">
      <property name="text">
-      <string>DISPLAY/SCROLL</string>
+      <string>MARQUEE MODE</string>
      </property>
      <property name="checkable">
       <bool>true</bool>

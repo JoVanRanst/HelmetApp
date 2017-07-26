@@ -26,12 +26,13 @@ namespace LedMatrix {
         void BlockUserInput();
 
     public:
-    // Basic operations
+        // Basic operations
         void Set(Page *matrixData);
         void Get(Page *matrixData);
         void Clear();
 
-    // Animation operations
+    public:
+        // Animation operations
         int LoadPages(std::vector<Page> *animation);
         int FirstPage();
         int AddPage();
@@ -50,14 +51,25 @@ namespace LedMatrix {
     private slots:
         void UpdateAnimationState();
 
+    public:
     // Text operations
+        void RunTextAnimation(double period_s, bool Marquee,  bool loop = false);
+    private slots:
+        void UpdateTextAnimState();
+
     private:
+        // Animation members
         bool                AnimationRunning;
         bool                LoopAnimation;
-        double              period_timer_ms;
-        QTimer             *interval_timer;
+        double              anim_period_timer_ms;
+        QTimer             *anim_interval_timer;
         unsigned int        PageNmbr;
         std::vector<Page>   Pages;
+
+        // Text animation members
+        double              text_period_timer_ms;
+        QTimer             *text_interval_timer;
+
         // "HARDWARE"
         QPushButton*        FullMatrix[MATRIX_ROWS][MATRIX_COLLUMS];
     };

@@ -119,8 +119,8 @@ void LedMatrix::LedMatrix_main::RunAnimation(double period_s, bool loop)
         AnimationRunning    = true;
         LoopAnimation       = loop;
         FirstPage();
-        period_timer_ms = period_s*1000;
-        interval_timer->start(period_timer_ms);
+        anim_period_timer_ms = period_s*1000;
+        anim_interval_timer->start(anim_period_timer_ms);
     } else {
         // Indicate that an animation is currently running
     }
@@ -131,7 +131,7 @@ void LedMatrix::LedMatrix_main::StopAnimation()
     AnimationRunning = false;
     LoopAnimation = false;
     period_timer_ms = 0;
-    interval_timer->stop();
+    anim_interval_timer->stop();
     FirstPage();
 }
 
@@ -146,5 +146,5 @@ void LedMatrix::LedMatrix_main::UpdateAnimationState()
         FirstPage();
         return;
     }
-    interval_timer->start(period_timer_ms);
+    anim_interval_timer->start(period_timer_ms);
 }
