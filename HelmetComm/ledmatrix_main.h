@@ -54,6 +54,8 @@ namespace LedMatrix {
     public:
     // Text operations
         void RunTextAnimation(double period_s, bool Marquee,  bool loop = false);
+    private:
+        void TextStart();
     private slots:
         void UpdateTextAnimState();
 

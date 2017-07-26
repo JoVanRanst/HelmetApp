@@ -1,24 +1,28 @@
 #include "ledmatrix_main.h"
 
-void LedMatrix::RunTextAnimation(double period_s, bool Marquee,  bool loop = false)
+namespace LedMatrix{
+
+void LedMatrix_main::RunTextAnimation(double period_s, bool Marquee,  bool loop)
 {
-    if(!AnimationRunning) {
-        AnimationRunning    = true;
-        LoopAnimation       = loop;
-        TextStart();
-        period_timer_ms = period_s*1000;
-        Text_interval_timer->start(period_timer_ms);
-    } else {
-        // Indicate that an animation is currently running
-    }
+//    if(!AnimationRunning) {
+//        AnimationRunning    = true;
+//        LoopAnimation       = loop;
+//        TextStart();
+//        period_timer_ms = period_s*1000;
+//        Text_interval_timer->start(period_timer_ms);
+//    } else {
+//        // Indicate that an animation is currently running
+//    }
 }
 
-void LedMatrix::TextStart()
+void LedMatrix_main::TextStart()
 {
 
 }
 
-void LedMatrix::UpdateTextAnimState()
+void LedMatrix_main::UpdateTextAnimState()
 {
 /// handle next text step
+}
+
 }

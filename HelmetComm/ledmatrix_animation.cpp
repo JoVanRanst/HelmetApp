@@ -1,6 +1,8 @@
 #include "ledmatrix_main.h"
 
-int LedMatrix::LedMatrix_main::LoadPages(std::vector<Page> *animation){
+namespace LedMatrix {
+
+int LedMatrix_main::LoadPages(std::vector<Page> *animation){
     if(animation->empty()) {
         return -1;
     }
@@ -15,7 +17,7 @@ int LedMatrix::LedMatrix_main::LoadPages(std::vector<Page> *animation){
     return PageNmbr;
 }
 
-void LedMatrix::LedMatrix_main::ScrollPage(bool NextPage)
+void LedMatrix_main::ScrollPage(bool NextPage)
 {
     if(Pages.empty()) {
         PageNmbr = 0;
@@ -44,26 +46,26 @@ void LedMatrix::LedMatrix_main::ScrollPage(bool NextPage)
     }
 }
 
-int LedMatrix::LedMatrix_main::FirstPage()
+int LedMatrix_main::FirstPage()
 {
     Set(&*(Pages.begin()));
     PageNmbr = 1;
     return PageNmbr;
 }
 
-int LedMatrix::LedMatrix_main::PrevPage()
+int LedMatrix_main::PrevPage()
 {
     ScrollPage(false);
     return GetPageNumber();
 }
 
-int LedMatrix::LedMatrix_main::NextPage()
+int LedMatrix_main::NextPage()
 {
     ScrollPage(true);
     return GetPageNumber();
 }
 
-int LedMatrix::LedMatrix_main::SavePage()
+int LedMatrix_main::SavePage()
 {
     std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     if(PageNmbr <= Pages.size() && PageNmbr != 0) {
@@ -74,7 +76,7 @@ int LedMatrix::LedMatrix_main::SavePage()
     return GetPageNumber();
 }
 
-int LedMatrix::LedMatrix_main::AddPage()
+int LedMatrix_main::AddPage()
 {
     LedMatrix::Page Buffer;
     std::vector<LedMatrix::Page>::iterator it = Pages.begin();
@@ -92,7 +94,7 @@ int LedMatrix::LedMatrix_main::AddPage()
     return GetPageNumber();
 }
 
-int LedMatrix::LedMatrix_main::RemovePage()
+int LedMatrix_main::RemovePage()
 {
     std::vector<LedMatrix::Page>::iterator it = Pages.begin();
     if(PageNmbr <= Pages.size() && PageNmbr != 0){
@@ -113,7 +115,7 @@ int LedMatrix::LedMatrix_main::RemovePage()
     return GetPageNumber();
 }
 
-void LedMatrix::LedMatrix_main::RunAnimation(double period_s, bool loop)
+void LedMatrix_main::RunAnimation(double period_s, bool loop)
 {
     if(!AnimationRunning) {
         AnimationRunning    = true;
@@ -126,25 +128,27 @@ void LedMatrix::LedMatrix_main::RunAnimation(double period_s, bool loop)
     }
 }
 
-void LedMatrix::LedMatrix_main::StopAnimation()
+void LedMatrix_main::StopAnimation()
 {
     AnimationRunning = false;
     LoopAnimation = false;
-    period_timer_ms = 0;
+    anim_period_timer_ms = 0;
     anim_interval_timer->stop();
     FirstPage();
 }
 
-void LedMatrix::LedMatrix_main::UpdateAnimationState()
+void LedMatrix_main::UpdateAnimationState()
 {
     if(LoopAnimation) {
         NextPage();
     } else {
         AnimationRunning = false;
         LoopAnimation = false;
-        period_timer_ms = 0;
+        anim_period_timer_ms = 0;
         FirstPage();
         return;
     }
-    anim_interval_timer->start(period_timer_ms);
+    anim_interval_timer->start(anim_period_timer_ms);
+}
+
 }
