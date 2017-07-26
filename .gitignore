@@ -1,7 +1,2 @@
-
-*.o
-*.exe
-*.stash
-*.Debug
-*.Release
-build-HelmetComm-Desktop_Qt_5_8_Static_MinGW_32bit/Makefile
+build-HelmetComm-Desktop_Qt_5_8_Static_MinGW_32bit/
+build-HelmetComm/
