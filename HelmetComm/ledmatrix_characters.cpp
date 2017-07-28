@@ -187,6 +187,7 @@ namespace LedMatrix{
             case bracket_straight_close:PushBackChar(char_brackets_straight_close,  output); break;
             case bracket_curly_open:    PushBackChar(char_brackets_curly_open,      output); break;
             case bracket_curly_close:   PushBackChar(char_brackets_curly_close,     output); break;
+            /// TODO: add further punctuations
         }
         return CopyComplete;
     }

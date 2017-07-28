@@ -1,8 +1,9 @@
-#ifndef DEFINEDCHARACTERS_H
-#define DEFINEDCHARACTERS_H
+#ifndef LEDMATRIX_CHARACTERS_H
+#define LEDMATRIX_CHARACTERS_H
 
-#include <vector>
 #include <bitset>
+#include <vector>
+
 #include "ledmatrix_characters_definitions.h"
 
 namespace LedMatrix{
@@ -39,9 +40,6 @@ namespace LedMatrix{
             }
             LedMatrix_char CharToEnum(char theChar);
             bool EnumToMatrix(LedMatrix_char theEnum, std::vector<std::bitset<8>> *output);
-
-            //pun_apostrophe, pun_quote_open, pun_quote_close,
-
     };
 }
-#endif // DEFINEDCHARACTERS_H
+#endif // LEDMATRIX_CHARACTERS_H

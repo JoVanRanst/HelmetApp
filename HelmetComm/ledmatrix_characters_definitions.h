@@ -1,5 +1,11 @@
+#ifndef LEDMATRIX_CHARACTER_DEFINITIONS_H
+#define LEDMATRIX_CHARACTER_DEFINITIONS_H
+
+#include <bitset>
+#include <vector>
+
 namespace LedMatrix {
-    class LedMatrix_Characters_definitions
+    class LedMatrix_Character_definitions
     {
         protected:
             //------------------------------------------//
@@ -663,5 +669,10 @@ namespace LedMatrix {
                  {0b00001000},
                  {0b01101100},
                  {0b01110110}};
+
+    /// TODO: pun_apostrophe, pun_quote_open, pun_quote_close,
+
     };
 }
+
+#endif // LEDMATRIX_CHARACTER_DEFINITIONS
