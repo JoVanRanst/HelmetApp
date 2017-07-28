@@ -2,10 +2,11 @@
 #define LEDMATRIX_H
 
 #include <bitset>
-#include <QWidget>
-#include <QTimer>
 #include <QGridLayout>
 #include <QPushButton>
+#include <QString>
+#include <QTimer>
+#include <QWidget>
 
 #include "ledmatrix_characters.h"
 
@@ -13,68 +14,82 @@
 #define MATRIX_COLLUMS  40
 
 namespace LedMatrix {
-    struct Page{
-        std::bitset<MATRIX_ROWS> elem[MATRIX_COLLUMS];
-    };
+	struct Page{
+		std::bitset<MATRIX_ROWS> elem[MATRIX_COLLUMS];
+	};
 
-    class LedMatrix_main: public QGridLayout, public LedMatrix_Characters
-    {
-        Q_OBJECT
-    public:
-        LedMatrix_main(bool BlockUserInput = false);
-    private slots:
-        void BlockUserInput();
+	class LedMatrix_main: public QGridLayout, public LedMatrix_Characters
+	{
+		Q_OBJECT
+	public:
+		LedMatrix_main(bool BlockUserInput = false);
+	private slots:
+		void BlockUserInput();
 
-    public:
-        // Basic operations
-        void Set(Page *matrixData);
-        void Get(Page *matrixData);
-        void Clear();
+	/// Basic operations
+	public:
+		void Set(Page *matrixData);
+		void Get(Page *matrixData);
+		void Clear();
 
-    public:
-        // Animation operations
-        int LoadPages(std::vector<Page> *animation);
-        int FirstPage();
-        int AddPage();
-        int NextPage();
-        int PrevPage();
-        int SavePage();
-        int RemovePage();
-        int GetPageNumber() { return PageNmbr; }
-        int GetPageAmount() { return Pages.size(); }
-        bool PagesLoaded() { return !Pages.empty(); }
-        bool AnimationIsRunning() { return AnimationRunning; }
-        void StopAnimation();
-        void RunAnimation(double period_ms, bool loop = false);
-    private:
-        void ScrollPage(bool NextPage);
-    private slots:
-        void UpdateAnimationState();
+	/// Animation operations
+	/// ledmatrix_animation.cpp
+	public:
+		int LoadPages(std::vector<Page> *animation);
+		int FirstPage();
+		int AddPage();
+		int NextPage();
+		int PrevPage();
+		int SavePage();
+		int RemovePage();
+		int GetPageNumber() { return PageNmbr; }
+		int GetPageAmount() { return Pages.size(); }
+		bool PagesLoaded() { return !Pages.empty(); }
+		bool AnimationIsRunning() { return AnimationRunning; }
+		void StopAnimation();
+		void RunAnimation(double period_ms, bool loop = false);
+	private:
+		void ScrollPage(bool NextPage);
+	private slots:
+		void UpdateAnimationState();
 
-    public:
-    // Text operations
-        void RunTextAnimation(double period_s, bool Marquee,  bool loop = false);
-    private:
-        void TextStart();
-    private slots:
-        void UpdateTextAnimState();
+	/// Text operations
+	/// ledmatrix_textanimation.cpp
+	public:
+		bool LoadText(QString text, bool MarqueeMode = true);
+		bool TextAnimationIsRunning() { return TextAnimationRunning; }
+		void StopTextAnimation();
+		void RunTextAnimation(double period_s, bool loop = false);
+	private:
+		void NextWordInText();
+		void NextMarqueePosition();
+	private slots:
+		void UpdateTextAnimState();
 
-    private:
-        // Animation members
-        bool                AnimationRunning;
-        bool                LoopAnimation;
-        double              anim_period_timer_ms;
-        QTimer             *anim_interval_timer;
-        unsigned int        PageNmbr;
-        std::vector<Page>   Pages;
+	private:
+		// Animation members
+		bool                		AnimationRunning;
+		bool                		LoopAnimation;
+		double              		anim_period_timer_ms;
+		QTimer             		   *anim_interval_timer;
 
-        // Text animation members
-        double              text_period_timer_ms;
-        QTimer             *text_interval_timer;
+		unsigned int        		PageNmbr;
+		std::vector<Page>   		Pages;
 
-        // "HARDWARE"
-        QPushButton*        FullMatrix[MATRIX_ROWS][MATRIX_COLLUMS];
-    };
+		// Text animation members
+		bool						TextAnimationRunning;
+		bool						LoopTextAnimation;
+		bool						TextMarqueeMode;
+		double              		text_period_timer_ms;
+		QTimer             		   *text_interval_timer;
+
+		unsigned int 				SingleIndex;
+		std::vector<Page>			SingleWords;
+
+		unsigned int 				MarqueeIndex;
+		std::vector<std::bitset<8>>	MarqueeText;
+        QPushButton*	FullMatrix[MATRIX_ROWS][MATRIX_COLLUMS];
+	};
 }
 
 #endif // LEDMATRIX_H

@@ -142,10 +142,7 @@ void LedMatrix_main::UpdateAnimationState()
     if(LoopAnimation) {
         NextPage();
     } else {
-        AnimationRunning = false;
-        LoopAnimation = false;
-        anim_period_timer_ms = 0;
-        FirstPage();
+        StopAnimation();
         return;
     }
     anim_interval_timer->start(anim_period_timer_ms);
