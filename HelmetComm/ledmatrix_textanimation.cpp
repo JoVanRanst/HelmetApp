@@ -16,12 +16,15 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
 
 	} else {
 		QStringList list = text.split(QRegExp("\\s"));
+		/// Check for imposible single words
 		for(int i = 0; i < list.count(); i++) {
             if(list[i].size()>8) {
                 /// Flag a word that can't be displayed in one screen
                 return false;
             }
 		}
+		StopTextAnimation();
+		StopAnimation();
         Clear();
         SingleWords.clear();
         MarqueeText.clear();
