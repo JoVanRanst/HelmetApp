@@ -187,6 +187,25 @@ namespace LedMatrix{
             case bracket_straight_close:PushBackChar(char_brackets_straight_close,  output); break;
             case bracket_curly_open:    PushBackChar(char_brackets_curly_open,      output); break;
             case bracket_curly_close:   PushBackChar(char_brackets_curly_close,     output); break;
+            /// Basic punctuations
+            case pun_fullstop:			PushBackChar(char_fullstop, 		output); break;
+            case pun_comma:				PushBackChar(char_comma, 			output); break;
+            case pun_colon:				PushBackChar(char_colon, 			output); break;
+            case pun_semicolon:			PushBackChar(char_semicolon, 		output); break;
+            case pun_exclamationmark: 	PushBackChar(char_exclamationmark, 	output); break;
+            case pun_questionmark:		PushBackChar(char_questionmark, 	output); break;
+            case pun_doubleqoute_open:	PushBackChar(char_doubleqoute_open, output); break;
+            case pun_doubleqoute_close:	PushBackChar(char_doubleqoute_close,output); break;
+            case pun_hyphen:			PushBackChar(char_hyphen,			output); break;
+            case pun_dash:				PushBackChar(char_dash,				output); break;
+            case pun_stroke: // same as slash
+            case pun_slash:				PushBackChar(char_slash,			output); break;
+            /// Math characters
+            case pun_equal:			PushBackChar(char_equal,		output); break;
+            case pun_plus:			PushBackChar(char_plus,			output); break;
+            case pun_number:		PushBackChar(char_number,		output); break;
+            case pun_asterisk:		PushBackChar(char_asterisk,		output); break;
+            case pun_percentage:	PushBackChar(char_percentage, 	output); break;
             /// TODO: add further punctuations
         }
         return CopyComplete;

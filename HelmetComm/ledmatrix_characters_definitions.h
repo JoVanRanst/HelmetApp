@@ -572,20 +572,6 @@ namespace LedMatrix {
                  {0b00000101},
                  {0b00000000}};
 
-            const std::vector<std::bitset<8>> char_exclamationmark =
-                {{0b00000000},
-                 {0b00000000},
-                 {0b01111001},
-                 {0b00000000},
-                 {0b00000000}};
-
-            const std::vector<std::bitset<8>> char_questionmark =
-                {{0b00110000},
-                 {0b01001000},
-                 {0b01000101},
-                 {0b01000000},
-                 {0b00100000}};
-
             const std::vector<std::bitset<8>> char_colon =
                 {{0b00000000},
                  {0b00000000},
@@ -599,6 +585,20 @@ namespace LedMatrix {
                  {0b00110110},
                  {0b00110101},
                  {0b00000000}};
+
+            const std::vector<std::bitset<8>> char_exclamationmark =
+                {{0b00000000},
+                 {0b00000000},
+                 {0b01111001},
+                 {0b00000000},
+                 {0b00000000}};
+
+            const std::vector<std::bitset<8>> char_questionmark =
+                {{0b00110000},
+                 {0b01001000},
+                 {0b01000101},
+                 {0b01000000},
+                 {0b00100000}};
 
             const std::vector<std::bitset<8>> char_doubleqoute_open =
                 {{0b01010000},

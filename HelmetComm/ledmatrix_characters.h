@@ -7,7 +7,7 @@
 #include "ledmatrix_characters_definitions.h"
 
 namespace LedMatrix{
-    class LedMatrix_Characters: private LedMatrix_Characters_definitions
+    class LedMatrix_Characters: private LedMatrix_Character_definitions
     {
         public:
             enum LedMatrix_char{
@@ -19,14 +19,14 @@ namespace LedMatrix{
                 bracket_round_open, bracket_round_close,                                        /// Brackets round
                 bracket_straight_open, bracket_straight_close,                                  /// Brackets straight
                 bracket_curly_open, bracket_curly_close,                                        /// Brackets curly
-                pun_fullstop, pun_colon, pun_comma, pun_semicolon, pun_exclamationmark,         /// Punctuation
+                pun_fullstop, pun_comma, pun_colon, pun_semicolon, pun_exclamationmark,         /// Punctuation
                 pun_questionmark, pun_apostrophe,
-                pun_quote_open, pun_quote_close, pun_doubleqoute_open, pun_doubleqoute_close,
-                pun_hyphen, pun_dash, pun_asterisk, pun_stroke, pun_slash,
-                pun_equal, pun_plus, pun_number, pun_percentage
+                pun_doubleqoute_open, pun_doubleqoute_close, pun_quote_open, pun_quote_close,
+                pun_hyphen, pun_dash, pun_slash, pun_stroke,
+                pun_equal, pun_plus, pun_number, pun_asterisk, pun_percentage
             };
 
-        public:
+//        public:
 //            bool GetLedMatrixChar(char charToFind, std::bitset<8> *OutputBuf)
 //            {
 //               return false;

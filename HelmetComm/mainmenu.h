@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 namespace Ui {
-class MainMenu;
+    class MainMenu;
 }
 
 class MainMenu : public QMainWindow
