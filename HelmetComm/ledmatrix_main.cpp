@@ -45,6 +45,7 @@ LedMatrix::LedMatrix_main::LedMatrix_main(bool BlockUserInput)
 	TextAnimationRunning = false;
 	text_interval_timer = new QTimer;
 	text_interval_timer->setSingleShot(true);
+    MatrixCharacters = new LedMatrix_Characters();
 	connect(text_interval_timer, SIGNAL(timeout()), this, SLOT(UpdateTextAnimState()));
 }
 
@@ -56,23 +57,26 @@ void LedMatrix::LedMatrix_main::BlockUserInput()
 
 void LedMatrix::LedMatrix_main::Set(Page *matrixData)
 {
+    matrixData->elem.resize(MATRIX_COLLUMS);
 	for(int i = 0; i<MATRIX_ROWS; i++) /// Lines
 	{
 		for(int j = 0; j<MATRIX_COLLUMS; j++) /// Collums
 		{
 			/// !!! matrixData is inverse 
-			FullMatrix[i][j]->setChecked(matrixData->elem[j][i]);
+            FullMatrix[i][j]->setChecked(matrixData->elem.at(j)[i]);
 		}
 	}
 }
 
 void LedMatrix::LedMatrix_main::Get(Page *matrixData)
 {
+    matrixData->elem.resize(MATRIX_COLLUMS);
 	for(int i = 0; i<MATRIX_ROWS; i++) /// Lines
 	{
 		for(int j = 0; j<MATRIX_COLLUMS; j++) /// Collums
 		{
-			matrixData->elem[j][i] = FullMatrix[i][j]->isChecked();
+            /// !!! matrixData is inverse
+            matrixData->elem.at(j)[i] = FullMatrix[i][j]->isChecked();
 		}
 	}
 }

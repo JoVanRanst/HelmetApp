@@ -40,6 +40,7 @@ public slots:
     void exit(void);
 
 private slots:
+    void UpdatePressed();
     void uploadTextPressed(void);
     void scrollORsequence(bool Status);
     void AssembleDisplayBuffer(QString text);

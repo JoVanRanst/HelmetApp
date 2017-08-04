@@ -1,9 +1,12 @@
-#include "ledmatrix_characters.h"
+
 #include <list>
 
+#include "ledmatrix_main.h"
+#include "ledmatrix_characters.h"
+
 namespace LedMatrix{
-	LedMatrix_Characters::LedMatrix_char LedMatrix_Characters::CharToEnum(char theChar) {
-		switch(theChar) {
+    LedMatrix_Characters::LedMatrix_char LedMatrix_Characters::CharToEnum(QChar theChar) {
+        switch(theChar.toLatin1()) {
 			/// Upper case
 			case 'A':   return A;     break;
 			case 'B':   return B;     break;

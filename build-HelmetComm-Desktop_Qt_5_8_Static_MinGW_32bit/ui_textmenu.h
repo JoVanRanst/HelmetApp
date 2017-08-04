@@ -28,21 +28,22 @@ class Ui_TextMenu
 {
 public:
     QGridLayout *gridLayout;
-    QLabel *label;
     QSpacerItem *horizontalSpacer_6;
+    QLabel *label;
     QSpacerItem *horizontalSpacer_2;
     QRadioButton *radioButton;
     QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *horizontalSpacer_3;
     QPushButton *uploadButton;
     QSpacerItem *horizontalSpacer;
-    QSpacerItem *verticalSpacer_2;
-    QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer;
-    QPushButton *scrollButton;
     QPushButton *pushReturn;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *scrollButton;
     QLineEdit *Textinput;
     QSpacerItem *horizontalSpacer_5;
     QWidget *widget;
+    QPushButton *updateButton;
 
     void setupUi(QWidget *TextMenu)
     {
@@ -51,60 +52,60 @@ public:
         TextMenu->resize(243, 240);
         gridLayout = new QGridLayout(TextMenu);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_6, 5, 2, 1, 1);
+
         label = new QLabel(TextMenu);
         label->setObjectName(QStringLiteral("label"));
 
         gridLayout->addWidget(label, 2, 1, 1, 1);
 
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_6, 4, 2, 1, 1);
-
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_2, 8, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_2, 9, 2, 1, 1);
 
         radioButton = new QRadioButton(TextMenu);
         radioButton->setObjectName(QStringLiteral("radioButton"));
 
-        gridLayout->addWidget(radioButton, 5, 1, 1, 1);
+        gridLayout->addWidget(radioButton, 6, 1, 1, 1);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_4, 3, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 4, 2, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 4, 0, 1, 1);
 
         uploadButton = new QPushButton(TextMenu);
         uploadButton->setObjectName(QStringLiteral("uploadButton"));
         uploadButton->setCheckable(false);
 
-        gridLayout->addWidget(uploadButton, 6, 1, 1, 1);
+        gridLayout->addWidget(uploadButton, 7, 1, 1, 1);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer, 8, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer, 9, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 8, 1, 1, 1);
+
+        pushReturn = new QPushButton(TextMenu);
+        pushReturn->setObjectName(QStringLiteral("pushReturn"));
+
+        gridLayout->addWidget(pushReturn, 9, 1, 1, 1);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_2, 0, 1, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_3, 3, 0, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 7, 1, 1, 1);
-
         scrollButton = new QPushButton(TextMenu);
         scrollButton->setObjectName(QStringLiteral("scrollButton"));
         scrollButton->setCheckable(true);
 
-        gridLayout->addWidget(scrollButton, 4, 1, 1, 1);
-
-        pushReturn = new QPushButton(TextMenu);
-        pushReturn->setObjectName(QStringLiteral("pushReturn"));
-
-        gridLayout->addWidget(pushReturn, 8, 1, 1, 1);
+        gridLayout->addWidget(scrollButton, 5, 1, 1, 1);
 
         Textinput = new QLineEdit(TextMenu);
         Textinput->setObjectName(QStringLiteral("Textinput"));
@@ -112,16 +113,21 @@ public:
         font.setPointSize(12);
         Textinput->setFont(font);
 
-        gridLayout->addWidget(Textinput, 3, 1, 1, 1);
+        gridLayout->addWidget(Textinput, 4, 1, 1, 1);
 
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_5, 4, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_5, 5, 0, 1, 1);
 
         widget = new QWidget(TextMenu);
         widget->setObjectName(QStringLiteral("widget"));
 
         gridLayout->addWidget(widget, 1, 1, 1, 1);
+
+        updateButton = new QPushButton(TextMenu);
+        updateButton->setObjectName(QStringLiteral("updateButton"));
+
+        gridLayout->addWidget(updateButton, 3, 1, 1, 1);
 
 
         retranslateUi(TextMenu);
@@ -135,8 +141,9 @@ public:
         label->setText(QApplication::translate("TextMenu", "Type your text here:", Q_NULLPTR));
         radioButton->setText(QApplication::translate("TextMenu", "REPEAT", Q_NULLPTR));
         uploadButton->setText(QApplication::translate("TextMenu", "UPLOAD TO HELMET", Q_NULLPTR));
-        scrollButton->setText(QApplication::translate("TextMenu", "MARQUEE MODE", Q_NULLPTR));
         pushReturn->setText(QApplication::translate("TextMenu", "BACK", Q_NULLPTR));
+        scrollButton->setText(QApplication::translate("TextMenu", "MARQUEE MODE", Q_NULLPTR));
+        updateButton->setText(QApplication::translate("TextMenu", "UPDATE", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -14,15 +14,15 @@
 #define MATRIX_COLLUMS  40
 
 namespace LedMatrix {
-	struct Page{
-		std::bitset<MATRIX_ROWS> elem[MATRIX_COLLUMS];
-	};
+    struct Page{
+        std::vector<std::bitset<MATRIX_ROWS>> elem;
+    };
 
 	class LedMatrix_main: public QGridLayout, public LedMatrix_Characters
 	{
 		Q_OBJECT
 	public:
-		LedMatrix_main(bool BlockUserInput = false);
+        LedMatrix_main(bool BlockUserInput = false);
 	private slots:
 		void BlockUserInput();
 
@@ -82,12 +82,15 @@ namespace LedMatrix {
 		bool						TextMarqueeMode;
 		double              		text_period_timer_ms;
 		QTimer             		   *text_interval_timer;
+        LedMatrix_Characters       *MatrixCharacters;
 
 		unsigned int 				SingleIndex;
 		std::vector<Page>			SingleWords;
 
 		unsigned int 				MarqueeIndex;
 		std::vector<std::bitset<8>>	MarqueeText;
+
+        // HARDWARE
         QPushButton*	FullMatrix[MATRIX_ROWS][MATRIX_COLLUMS];
 	};
 }

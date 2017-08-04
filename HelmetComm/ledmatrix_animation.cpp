@@ -48,7 +48,8 @@ void LedMatrix_main::ScrollPage(bool NextPage)
 
 int LedMatrix_main::FirstPage()
 {
-    Set(&*(Pages.begin()));
+    if(!Pages.empty())
+        Set(&*(Pages.begin()));
     PageNmbr = 1;
     return PageNmbr;
 }

@@ -4,8 +4,14 @@ namespace LedMatrix{
 
 bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
 {
-    if(text.size() == 0) {
+    if(text.size() <= 0) {
         // Empty text given
+        StopTextAnimation();
+        StopAnimation();
+        SingleWords.clear();
+        MarqueeText.clear();
+        Clear();
+        return false;
 	}
 
     TextMarqueeMode = MarqueeMode;
@@ -13,7 +19,7 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
         Clear();
         SingleWords.clear();
         MarqueeText.clear();
-
+        /// TODO: handle marquee function
 	} else {
 		QStringList list = text.split(QRegExp("\\s"));
 		/// Check for imposible single words
@@ -23,15 +29,18 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
                 return false;
             }
 		}
+
 		StopTextAnimation();
 		StopAnimation();
         Clear();
         SingleWords.clear();
         MarqueeText.clear();
+        Page NewPage;
         for(QStringList::Iterator it = list.begin(); it != list.end(); it++) {
-
-            //SingleWords.push_back();
+            MatrixCharacters->WordToMatrix(*it, &(NewPage.elem), MATRIX_COLLUMS);
+            SingleWords.push_back(NewPage);
         }
+        Set(&*(SingleWords.begin()));
 	}
 
     return true;
@@ -39,6 +48,8 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
 
 void LedMatrix_main::StopTextAnimation()
 {
+    SingleIndex     = 0;
+    MarqueeIndex    = 0;
 	TextAnimationRunning 	= false;
 	LoopTextAnimation 		= false;
 	text_period_timer_ms 	= 0;
@@ -74,7 +85,6 @@ void LedMatrix_main::NextWordInText()
 void LedMatrix_main::NextMarqueePosition()
 {
 	Clear();
-
 }
 
 void LedMatrix_main::UpdateTextAnimState()

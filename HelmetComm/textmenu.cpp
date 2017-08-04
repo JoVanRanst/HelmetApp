@@ -10,13 +10,22 @@ TextMenu::TextMenu() :
     ui_display = new LedMatrix::LedMatrix_main(true);
     ui->widget->setLayout(ui_display);
 
+
     connect(ui->pushReturn,   SIGNAL(pressed()),            this, SLOT(exit()));
     connect(ui->uploadButton, SIGNAL(pressed()),            this, SLOT(uploadTextPressed()));
     connect(ui->scrollButton, SIGNAL(toggled(bool)),        this, SLOT(scrollORsequence(bool)));
     connect(ui->Textinput,    SIGNAL(textChanged(QString)), this, SLOT(AssembleDisplayBuffer(QString)));
+
+    connect(ui->updateButton, SIGNAL(pressed()), this, SLOT(UpdatePressed()));
 }
 
 /// SLOTS
+void TextMenu::UpdatePressed()
+{
+    ui_display->LoadText(ui->Textinput->text(), ui->scrollButton->isChecked());
+}
+
+
 void TextMenu::uploadTextPressed(void)
 {
     QString text = ui->Textinput->text();
