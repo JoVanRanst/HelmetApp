@@ -59,8 +59,10 @@ namespace LedMatrix{
             /// Blocking constructor call
             void PushBackChar(const std::vector<std::bitset<8>> in, std::vector<std::bitset<8>> *out) {
                 for(int i=4; i>=0; i--) {
+                    /// Fix the inverse character definition, IDIOT
                     std::bitset<8> buf;
                     for(int j=0; j<8; j++) buf[j] = in.at(i)[7-j];
+
                     out->push_back(buf);
                 }
             }

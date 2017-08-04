@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>243</width>
-    <height>240</height>
+    <width>411</width>
+    <height>309</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,45 +16,6 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="1">
     <widget class="QWidget" name="widget" native="true"/>
-   </item>
-   <item row="5" column="0">
-    <spacer name="horizontalSpacer_5">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLineEdit" name="Textinput">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QPushButton" name="updateButton">
-     <property name="text">
-      <string>UPDATE</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QPushButton" name="scrollButton">
-     <property name="text">
-      <string>MARQUEE MODE</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-    </widget>
    </item>
    <item row="0" column="1">
     <spacer name="verticalSpacer_2">
@@ -69,8 +30,8 @@
      </property>
     </spacer>
    </item>
-   <item row="9" column="2">
-    <spacer name="horizontalSpacer_2">
+   <item row="7" column="0">
+    <spacer name="horizontalSpacer_3">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -82,15 +43,8 @@
      </property>
     </spacer>
    </item>
-   <item row="6" column="1">
-    <widget class="QRadioButton" name="radioButton">
-     <property name="text">
-      <string>REPEAT</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2">
-    <spacer name="horizontalSpacer_6">
+   <item row="7" column="2">
+    <spacer name="horizontalSpacer_4">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -109,8 +63,17 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="2">
-    <spacer name="horizontalSpacer_4">
+   <item row="7" column="1">
+    <widget class="QLineEdit" name="Textinput">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <spacer name="horizontalSpacer_5">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -122,40 +85,67 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="0">
-    <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="scrollButton">
+     <property name="text">
+      <string>MARQUEE MODE</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
+     <property name="checkable">
+      <bool>true</bool>
      </property>
-    </spacer>
+    </widget>
    </item>
    <item row="9" column="1">
+    <widget class="QRadioButton" name="loopButton">
+     <property name="text">
+      <string>REPEAT</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2">
+    <spacer name="horizontalSpacer_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="10" column="1">
+    <widget class="QPushButton" name="uploadButton">
+     <property name="text">
+      <string>UPLOAD TO HELMET</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="1">
     <widget class="QPushButton" name="pushReturn">
      <property name="text">
       <string>BACK</string>
      </property>
     </widget>
    </item>
-   <item row="8" column="1">
-    <spacer name="verticalSpacer">
+   <item row="12" column="2">
+    <spacer name="horizontalSpacer_2">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>40</width>
+       <height>20</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="9" column="0">
+   <item row="12" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -168,15 +158,46 @@
      </property>
     </spacer>
    </item>
-   <item row="7" column="1">
-    <widget class="QPushButton" name="uploadButton">
-     <property name="text">
-      <string>UPLOAD TO HELMET</string>
+   <item row="11" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="checkable">
-      <bool>false</bool>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
      </property>
-    </widget>
+    </spacer>
+   </item>
+   <item row="3" column="1">
+    <layout class="QHBoxLayout" name="animationControl">
+     <item>
+      <widget class="QPushButton" name="updateButton">
+       <property name="text">
+        <string>UPDATE</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="runButton">
+       <property name="text">
+        <string>RUN</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDoubleSpinBox" name="periodSpinBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>PERIOD[sec]</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

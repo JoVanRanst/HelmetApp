@@ -12,14 +12,26 @@ TextMenu::TextMenu() :
 
 
     connect(ui->pushReturn,   SIGNAL(pressed()),            this, SLOT(exit()));
+    connect(ui->runButton,    SIGNAL(pressed()),            this, SLOT(RunPressed()));
     connect(ui->uploadButton, SIGNAL(pressed()),            this, SLOT(uploadTextPressed()));
     connect(ui->scrollButton, SIGNAL(toggled(bool)),        this, SLOT(scrollORsequence(bool)));
-    connect(ui->Textinput,    SIGNAL(textChanged(QString)), this, SLOT(AssembleDisplayBuffer(QString)));
 
     connect(ui->updateButton, SIGNAL(pressed()), this, SLOT(UpdatePressed()));
 }
 
 /// SLOTS
+
+void TextMenu::RunPressed()
+{
+    if(ui_display->TextAnimationIsRunning()) {
+        ui_display->StopAnimation();
+        ui->runButton->setText("RUN");
+    } else {
+        ui_display->RunTextAnimation(ui->periodSpinBox->value(), ui->loopButton->isChecked());
+        ui->runButton->setText("STOP");
+    }
+}
+
 void TextMenu::UpdatePressed()
 {
     ui_display->LoadText(ui->Textinput->text(), ui->scrollButton->isChecked());
@@ -33,15 +45,16 @@ void TextMenu::uploadTextPressed(void)
 
     if(text.count()>0)
     {
+        /// TODO: UPLOAD THE TEXT
         if(text.contains(QRegExp("[^a-zA-Z\\d\\s]")))
         {
-            msgBox.setText("Text contains non printable characters[only 0-9 and A-Z(a-z) are possible!!");
+            /// TODO: create checkerfunction utalizing LEDMATRIX_CHARACTER_DEFINITIONS enum
+            msgBox.setText("Text contains non printable characters[only 0-9 and A-Z(a-z) are possible!!"); //Inaccurate, punctuation are allowed
             msgBox.exec();
         }
         else
         {
-            /// UPLOAD THE TEXT
-            //ui_display->Set();
+
         }
     }
     else
@@ -59,18 +72,6 @@ void TextMenu::scrollORsequence(bool Status)
         ui->scrollButton->setText("MARQUEE MODE");
 
 }
-
-void TextMenu::AssembleDisplayBuffer(QString text)
-{
-
-}
-
-//// State checker
-void TextMenu::UpdateState(void)
-{
-
-}
-
 
 void TextMenu::exit(void)
 {

@@ -27,7 +27,6 @@ public:
 private:
     TextMenu();
     //~TextMenu();
-    void UpdateState(void);
 
 private:
     Ui::TextMenu                *ui;
@@ -40,10 +39,10 @@ public slots:
     void exit(void);
 
 private slots:
+    void RunPressed();
     void UpdatePressed();
     void uploadTextPressed(void);
     void scrollORsequence(bool Status);
-    void AssembleDisplayBuffer(QString text);
 
 };
 

@@ -70,8 +70,7 @@ void AnimationCreation::matrixClear()
                            "Are you sure?",
                            "You are about to clear all the led's in the matrix, are you sure about this?",
                            QMessageBox::Ok,
-                           QMessageBox::Cancel) == QMessageBox::Ok)
-    {
+                           QMessageBox::Cancel) == QMessageBox::Ok) {
         matrix->Clear();
     } else {
         /// Action canceled

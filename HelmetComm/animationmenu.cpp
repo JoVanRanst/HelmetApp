@@ -11,23 +11,20 @@ AnimationMenu::AnimationMenu() :
     //ui_creation->hide();
     ui->verticalLayout->addWidget(ui_creation);
 
-    connect(ui->selectionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(loadAnim(int)));
     connect(ui->uploadButton, SIGNAL(pressed()), this, SLOT(uploadAnim()));
+    connect(ui->openButton,   SIGNAL(pressed()), this, SLOT(openAmim()));
     connect(ui->createButton, SIGNAL(pressed()), this, SLOT(createAnim()));
     connect(ui->returnButton, SIGNAL(pressed()), this, SLOT(exit()));
 }
 
-void AnimationMenu::loadAnim(int index)
-{
-    index++;
-    /// IMPLEMENT the loading of animations
-//    QString animName = ui->selectionBox->itemText(index);
-//    QMessageBox::warning(NULL, "selected", animName, QMessageBox::Ok, QMessageBox::Abort);
-}
-
 void AnimationMenu::uploadAnim()
 {
-    /// UPLOAD the animation data
+    /// TODO: UPLOAD the animation data
+}
+
+void AnimationMenu::openAnim()
+{
+    /// TODO: open animationcreation menu with the choisen anim data loaded
 }
 
 void AnimationMenu::createAnim()

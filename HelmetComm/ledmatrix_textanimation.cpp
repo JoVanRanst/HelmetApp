@@ -29,12 +29,13 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
                 return false;
             }
 		}
-
+		/// Stop and clear current animation
 		StopTextAnimation();
 		StopAnimation();
         Clear();
         SingleWords.clear();
         MarqueeText.clear();
+
         Page NewPage;
         for(QStringList::Iterator it = list.begin(); it != list.end(); it++) {
             MatrixCharacters->WordToMatrix(*it, &(NewPage.elem), MATRIX_COLLUMS);
@@ -59,15 +60,16 @@ void LedMatrix_main::StopTextAnimation()
 void LedMatrix_main::RunTextAnimation(double period_s, bool loop)
 {
 	if(!TextAnimationRunning) {
-		MarqueeIndex = 0;
-		SingleIndex  = 0;
-		TextAnimationRunning    = true;
-		LoopTextAnimation       = loop;
-		text_period_timer_ms = period_s*1000;
-        text_interval_timer->start(text_period_timer_ms);
-	} else {
-		// Indicate that an animation is currently running
-	}
+        StopAnimation();
+        StopTextAnimation();
+    }
+
+    MarqueeIndex = 0;
+    SingleIndex  = 0;
+    TextAnimationRunning    = true;
+    LoopTextAnimation       = loop;
+    text_period_timer_ms = period_s*1000;
+    text_interval_timer->start(text_period_timer_ms);
 }
 
 void LedMatrix_main::NextWordInText()
@@ -77,9 +79,7 @@ void LedMatrix_main::NextWordInText()
 		SingleIndex = 0; /// Outside of vector limits
 	}
 
-    std::vector<Page>::iterator it = SingleWords.begin();
-    std::advance(it, SingleIndex);
-    Set(&(*it));
+    Set(&(SingleWords.at(SingleIndex)));
 }
 
 void LedMatrix_main::NextMarqueePosition()

@@ -17,26 +17,6 @@
    <string>Animation menu</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="8" column="1">
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="7" column="1">
-    <widget class="QPushButton" name="returnButton">
-     <property name="text">
-      <string>BACK</string>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="2">
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
@@ -49,13 +29,6 @@
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLabel" name="description">
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
    </item>
    <item row="0" column="1">
     <spacer name="verticalSpacer">
@@ -70,15 +43,15 @@
      </property>
     </spacer>
    </item>
-   <item row="5" column="1">
-    <widget class="QPushButton" name="createButton">
+   <item row="3" column="1">
+    <widget class="QLabel" name="description">
      <property name="text">
-      <string>CREATE</string>
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="1">
-    <spacer name="verticalSpacer_3">
+   <item row="9" column="1">
+    <spacer name="verticalSpacer_2">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -89,6 +62,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="returnButton">
+     <property name="text">
+      <string>BACK</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="1">
     <widget class="QComboBox" name="selectionBox">
@@ -104,13 +84,6 @@
      </item>
     </widget>
    </item>
-   <item row="4" column="1">
-    <widget class="QPushButton" name="uploadButton">
-     <property name="text">
-      <string>UPLOAD</string>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -124,8 +97,42 @@
      </property>
     </spacer>
    </item>
+   <item row="7" column="1">
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="uploadButton">
+     <property name="text">
+      <string>UPLOAD</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QPushButton" name="createButton">
+     <property name="text">
+      <string>CREATE</string>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="1">
     <layout class="QVBoxLayout" name="verticalLayout"/>
+   </item>
+   <item row="5" column="1">
+    <widget class="QPushButton" name="openButton">
+     <property name="text">
+      <string>OPEN</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

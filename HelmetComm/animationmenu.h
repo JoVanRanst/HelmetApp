@@ -40,6 +40,7 @@ signals:
 public slots:
     void loadAnim(int index);
     void uploadAnim();
+    void openAnim();
     void createAnim();
     void exit();
 };
