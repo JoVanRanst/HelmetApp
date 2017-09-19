@@ -26,7 +26,7 @@ namespace LedMatrix{
                 pun_fullstop, pun_comma, pun_colon, pun_semicolon, pun_exclamationmark,         /// Punctuation
                 pun_questionmark, pun_apostrophe,
                 pun_doubleqoute_open, pun_doubleqoute_close, pun_quote_open, pun_quote_close,
-                pun_hyphen, pun_dash, pun_slash, pun_stroke,
+                pun_hyphen, pun_dash, pun_slash, pun_stroke, pun_line,
                 pun_equal, pun_plus, pun_number, pun_asterisk, pun_percentage
             };
 

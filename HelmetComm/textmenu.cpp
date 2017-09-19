@@ -46,7 +46,7 @@ void TextMenu::uploadTextPressed(void)
     if(text.count()>0)
     {
         /// TODO: UPLOAD THE TEXT
-        if(text.contains(QRegExp("[^a-zA-Z\\d\\s]")))
+        if(text.contains(QRegExp("[^a-zA-Z0-9()[]{},.?!:;\'\"#+-_*/=%\\d\\s]")))
         {
             /// TODO: create checkerfunction utalizing LEDMATRIX_CHARACTER_DEFINITIONS enum
             msgBox.setText("Text contains non printable characters[only 0-9 and A-Z(a-z) are possible!!"); //Inaccurate, punctuation are allowed

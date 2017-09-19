@@ -12,7 +12,7 @@ AnimationMenu::AnimationMenu() :
     ui->verticalLayout->addWidget(ui_creation);
 
     connect(ui->uploadButton, SIGNAL(pressed()), this, SLOT(uploadAnim()));
-    connect(ui->openButton,   SIGNAL(pressed()), this, SLOT(openAmim()));
+    connect(ui->openButton,   SIGNAL(pressed()), this, SLOT(openAnim()));
     connect(ui->createButton, SIGNAL(pressed()), this, SLOT(createAnim()));
     connect(ui->returnButton, SIGNAL(pressed()), this, SLOT(exit()));
 }

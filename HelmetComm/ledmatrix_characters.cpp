@@ -94,6 +94,7 @@ namespace LedMatrix{
 			case '_':   return pun_dash;              break;
 			case '*':   return pun_asterisk;          break;
 			case '/':   return pun_stroke;            break;
+            case '|':   return pun_line;              break;
 			case '=':   return pun_equal;             break;
 			case '%':   return pun_percentage;        break;
 			/// Space
@@ -167,6 +168,7 @@ namespace LedMatrix{
             case w:		PushBackChar(char_w, output);     break;
             case x:		PushBackChar(char_x, output);     break;
             case y:		PushBackChar(char_y, output);     break;
+            case z:     PushBackChar(char_z, output);     break;
             /// Numbers
             case nr_0:  PushBackChar(char_0, output);  break;
             case nr_1:  PushBackChar(char_1, output);  break;
@@ -203,6 +205,7 @@ namespace LedMatrix{
             case pun_dash:				PushBackChar(char_dash,				output); break;
             case pun_stroke: // same as slash
             case pun_slash:				PushBackChar(char_slash,			output); break;
+            case pun_line:              PushBackChar(char_line,             output); break;
             /// Math characters
             case pun_equal:			PushBackChar(char_equal,		output); break;
             case pun_plus:			PushBackChar(char_plus,			output); break;

@@ -667,9 +667,15 @@ namespace LedMatrix {
                 {{0b00100011},
                  {0b00010011},
                  {0b00001000},
-                 {0b01101100},
-                 {0b01110110}};
+                 {0b01100100},
+                 {0b01100010}};
 
+            const std::vector<std::bitset<8>> char_line =
+                {{0b00000000},
+                 {0b00000000},
+                 {0b01111111},
+                 {0b00000000},
+                 {0b00000000}};
     /// TODO: pun_apostrophe, pun_quote_open, pun_quote_close,
 
     };
