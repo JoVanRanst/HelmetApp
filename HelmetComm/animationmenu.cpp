@@ -13,8 +13,13 @@ AnimationMenu::AnimationMenu() :
 
     connect(ui->uploadButton, SIGNAL(pressed()), this, SLOT(uploadAnim()));
     connect(ui->openButton,   SIGNAL(pressed()), this, SLOT(openAnim()));
-    connect(ui->createButton, SIGNAL(pressed()), this, SLOT(createAnim()));
     connect(ui->returnButton, SIGNAL(pressed()), this, SLOT(exit()));
+}
+
+void AnimationMenu::loadAnim(int index)
+{
+    /// TODO: does this have practical use?
+    index ++;
 }
 
 void AnimationMenu::uploadAnim()
@@ -27,17 +32,15 @@ void AnimationMenu::openAnim()
     /// TODO: open animationcreation menu with the choisen anim data loaded
 }
 
-void AnimationMenu::createAnim()
-{
-    this->hide();
-    emit openCreate();
-    ui_creation->show();
-}
-
 void AnimationMenu::exit()
 {
     this->hide();
     emit exitMenu();
+}
+
+void AnimationMenu::on_openButton_pressed()
+{
+    /// TODO: something?
 }
 
 //AnimationMenu::~AnimationMenu()

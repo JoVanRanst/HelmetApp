@@ -41,7 +41,6 @@ public slots:
     void loadAnim(int index);
     void uploadAnim();
     void openAnim();
-    void createAnim();
     void exit();
 private slots:
     void on_openButton_pressed();

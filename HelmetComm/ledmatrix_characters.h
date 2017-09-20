@@ -18,6 +18,7 @@ namespace LedMatrix{
                 nr_0, nr_1, nr_2, nr_3, nr_4, nr_5, nr_6, nr_7, nr_8, nr_9,                     /// Number
                 A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,   /// Capital letters
                 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z,   /// Small letters
+                dollar, music,                                                                  /// Special characters
                 space_1, space_2, space_3, space_4, space_5, space,                             /// Spaces (space_5 == space)
                 arrow_up, arrow_down, arrow_left, arrow_right,                                  /// Arrows
                 bracket_round_open, bracket_round_close,                                        /// Brackets round

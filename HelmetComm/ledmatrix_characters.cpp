@@ -72,6 +72,8 @@ namespace LedMatrix{
 			case '7':   return nr_7;  break;
 			case '8':   return nr_8;  break;
 			case '9':   return nr_9;  break;
+            /// Special
+            case '$':   return dollar; break;
 			/// Brackets
 			case '(':   return bracket_round_open;    break;
 			case ')':   return bracket_round_close;   break;
@@ -180,6 +182,9 @@ namespace LedMatrix{
             case nr_7:  PushBackChar(char_7, output);  break;
             case nr_8:  PushBackChar(char_8, output);  break;
             case nr_9:  PushBackChar(char_9, output);  break;
+            /// Specials
+            case dollar: PushBackChar(char_dollar, output); break;
+            case music:  PushBackChar(char_music, output);  break;
             /// Arrows
             case arrow_up:      PushBackChar(char_arrow_up,     output); break;
             case arrow_down:    PushBackChar(char_arrow_down,   output); break;
