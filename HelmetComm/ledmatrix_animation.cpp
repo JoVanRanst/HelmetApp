@@ -54,15 +54,39 @@ int LedMatrix_main::FirstPage()
     return PageNmbr;
 }
 
-int LedMatrix_main::PrevPage()
+int LedMatrix_main::GoToPage(unsigned int newPosition)
 {
-    ScrollPage(false);
-    return GetPageNumber();
+    if(Pages.empty()) {
+        return 0; /// Indicates empty page list
+    }
+
+    if((Pages.size() < newPosition)) {
+        return -1; /// Indicates
+    }
+
+    PageNmbr = newPosition;
+
+    std::vector<Page>::iterator it = Pages.begin();
+    if(PageNmbr <= Pages.size() && PageNmbr != 0) {
+        Set(&(*(it+(PageNmbr-1))));
+    } else {
+        /// Catch out of list or reset to start
+        PageNmbr = 1;
+        Set(&(*(it+(PageNmbr-1))));
+    }
+
+    return newPosition;
 }
 
 int LedMatrix_main::NextPage()
 {
     ScrollPage(true);
+    return GetPageNumber();
+}
+
+int LedMatrix_main::PrevPage()
+{
+    ScrollPage(false);
     return GetPageNumber();
 }
 

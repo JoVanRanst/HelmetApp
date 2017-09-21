@@ -37,10 +37,11 @@ namespace LedMatrix {
 	public:
 		int LoadPages(std::vector<Page> *animation);
 		int FirstPage();
-		int AddPage();
+        int GoToPage(unsigned int newPosition);
 		int NextPage();
 		int PrevPage();
 		int SavePage();
+        int AddPage();
 		int RemovePage();
 		int GetPageNumber() { return PageNmbr; }
 		int GetPageAmount() { return Pages.size(); }
@@ -48,6 +49,9 @@ namespace LedMatrix {
 		bool AnimationIsRunning() { return AnimationRunning; }
 		void StopAnimation();
 		void RunAnimation(double period_ms, bool loop = false);
+    signals:
+        //void AnimationUpdateNr();
+
 	private:
 		void ScrollPage(bool NextPage);
 	private slots:

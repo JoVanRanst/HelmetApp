@@ -11,6 +11,7 @@ AnimationCreation::AnimationCreation(QWidget *parent) :
     matrix = new LedMatrix::LedMatrix_main();
     ui->widget->setLayout(matrix);
 
+    connect(ui->navSlider,      SIGNAL(valueChanged(int)), this, SLOT(matrixPageSlider(int)));
     connect(ui->button_prev,    SIGNAL(pressed()), this, SLOT(matrixPagePrev()));
     connect(ui->button_next,    SIGNAL(pressed()), this, SLOT(matrixPageNext()));
     connect(ui->button_save,    SIGNAL(pressed()), this, SLOT(matrixPageSave()));
@@ -18,15 +19,31 @@ AnimationCreation::AnimationCreation(QWidget *parent) :
     connect(ui->button_remove,  SIGNAL(pressed()), this, SLOT(matrixPageRemove()));
     connect(ui->button_run,     SIGNAL(pressed()), this, SLOT(matrixRun()));
     connect(ui->button_clear,   SIGNAL(pressed()), this, SLOT(matrixClear()));
+
+    ui->navSlider->setMinimum(0);
 }
 
 void AnimationCreation::UpdatePageCounter()
 {
     if(matrix->PagesLoaded()) {
         ui->label_index->setText(QString::number(matrix->GetPageNumber()) + "/" + QString::number(matrix->GetPageAmount()));
+        ui->navSlider->setMinimum(1);
+        ui->navSlider->setMaximum(matrix->GetPageAmount());
+        ui->navSlider->setValue(matrix->GetPageNumber());
     } else {
         ui->label_index->setText("#/#");
+        ui->navSlider->setMinimum(0);
+        ui->navSlider->setMaximum(0);
+        ui->navSlider->setValue(0);
     }
+
+}
+
+void AnimationCreation::matrixPageSlider(int newValue)
+{
+    if(matrix->PagesLoaded())
+        matrix->GoToPage(newValue);
+    UpdatePageCounter();
 }
 
 void AnimationCreation::matrixPagePrev()

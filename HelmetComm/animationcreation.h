@@ -21,6 +21,7 @@ class AnimationCreation : public QWidget
         /// private methods
     private:
         void UpdatePageCounter();
+
         /// private members
     private:
         Ui::AnimationCreation *ui;
@@ -31,6 +32,7 @@ class AnimationCreation : public QWidget
         void exitMenu();
 
     private slots:
+        void matrixPageSlider(int newValue);
         void matrixPagePrev();
         void matrixPageNext();
         void matrixPageSave();
