@@ -30,9 +30,6 @@ class AnimationCreation : public QWidget
     signals:
         void exitMenu();
 
-    public slots:
-        void exit();
-
     private slots:
         void matrixPagePrev();
         void matrixPageNext();

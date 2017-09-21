@@ -100,13 +100,6 @@
      </item>
     </layout>
    </item>
-   <item>
-    <widget class="QPushButton" name="button_saveAnim">
-     <property name="text">
-      <string>SAVE ANIMATION</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <resources/>

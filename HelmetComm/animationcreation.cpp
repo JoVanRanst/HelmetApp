@@ -18,7 +18,6 @@ AnimationCreation::AnimationCreation(QWidget *parent) :
     connect(ui->button_remove,  SIGNAL(pressed()), this, SLOT(matrixPageRemove()));
     connect(ui->button_run,     SIGNAL(pressed()), this, SLOT(matrixRun()));
     connect(ui->button_clear,   SIGNAL(pressed()), this, SLOT(matrixClear()));
-    connect(ui->button_saveAnim,SIGNAL(pressed()), this, SLOT(exit()));
 }
 
 void AnimationCreation::UpdatePageCounter()
@@ -87,15 +86,6 @@ void AnimationCreation::matrixRun()
         ui->button_run->setText("RUN");
     }
     UpdatePageCounter();
-}
-
-void AnimationCreation::exit()
-{
-    if(matrix->PagesLoaded()) {
-        /// Save functionality
-    }
-    //this->hide();
-    emit exitMenu();
 }
 
 AnimationCreation::~AnimationCreation()

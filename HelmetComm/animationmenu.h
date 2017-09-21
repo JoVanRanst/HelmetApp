@@ -38,12 +38,10 @@ signals:
     void exitMenu();
 
 public slots:
-    void loadAnim(int index);
-    void uploadAnim();
     void openAnim();
+    void saveAnim();
+    void uploadAnim();
     void exit();
-private slots:
-    void on_openButton_pressed();
 };
 
 #endif // ANIMATIONMENU_H

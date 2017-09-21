@@ -62,5 +62,6 @@ RESOURCES += \
 DISTFILES += \
     styleBase.qss \
     image/LedOff.png \
-    image/LedOn.png
+    image/LedOn.png \
+    TODOlist.txt
 

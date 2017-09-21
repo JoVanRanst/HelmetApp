@@ -11,20 +11,10 @@ AnimationMenu::AnimationMenu() :
     //ui_creation->hide();
     ui->verticalLayout->addWidget(ui_creation);
 
-    connect(ui->uploadButton, SIGNAL(pressed()), this, SLOT(uploadAnim()));
     connect(ui->openButton,   SIGNAL(pressed()), this, SLOT(openAnim()));
+    connect(ui->saveButton,   SIGNAL(pressed()), this, SLOT(saveAnim()));
+    connect(ui->uploadButton, SIGNAL(pressed()), this, SLOT(uploadAnim()));
     connect(ui->returnButton, SIGNAL(pressed()), this, SLOT(exit()));
-}
-
-void AnimationMenu::loadAnim(int index)
-{
-    /// TODO: does this have practical use?
-    index ++;
-}
-
-void AnimationMenu::uploadAnim()
-{
-    /// TODO: UPLOAD the animation data
 }
 
 void AnimationMenu::openAnim()
@@ -32,15 +22,20 @@ void AnimationMenu::openAnim()
     /// TODO: open animationcreation menu with the choisen anim data loaded
 }
 
+void AnimationMenu::saveAnim()
+{
+    /// TODO: implement saving of the animation
+}
+
+void AnimationMenu::uploadAnim()
+{
+    /// TODO: UPLOAD the animation data
+}
+
 void AnimationMenu::exit()
 {
     this->hide();
     emit exitMenu();
-}
-
-void AnimationMenu::on_openButton_pressed()
-{
-    /// TODO: something?
 }
 
 //AnimationMenu::~AnimationMenu()
