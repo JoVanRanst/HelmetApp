@@ -10,16 +10,58 @@ TextMenu::TextMenu() :
     ui_display = new LedMatrix::LedMatrix_main(true);
     ui->widget->setLayout(ui_display);
 
+    connect(ui->nextButton,     SIGNAL(pressed()),      this, SLOT(NextPressed()));
+    connect(ui->prevButton,     SIGNAL(pressed()),      this, SLOT(PrevPressed()));
+    connect(ui->navSlider,      SIGNAL(valueChanged(int)), this, SLOT(NavSliderMoved(int)));
 
-    connect(ui->pushReturn,   SIGNAL(pressed()),            this, SLOT(exit()));
-    connect(ui->runButton,    SIGNAL(pressed()),            this, SLOT(RunPressed()));
-    connect(ui->uploadButton, SIGNAL(pressed()),            this, SLOT(uploadTextPressed()));
-    connect(ui->scrollButton, SIGNAL(toggled(bool)),        this, SLOT(scrollORsequence(bool)));
+    connect(ui->pushReturn,     SIGNAL(pressed()),      this, SLOT(exit()));
+    connect(ui->runButton,      SIGNAL(pressed()),      this, SLOT(RunPressed()));
+    connect(ui->uploadButton,   SIGNAL(pressed()),      this, SLOT(uploadTextPressed()));
+    connect(ui->scrollButton,   SIGNAL(toggled(bool)),  this, SLOT(scrollORsequence(bool)));
 
-    connect(ui->updateButton, SIGNAL(pressed()), this, SLOT(UpdatePressed()));
+    connect(ui->updateButton,   SIGNAL(pressed()),      this, SLOT(UpdatePressed()));
 }
 
-/// SLOTS
+void TextMenu::UpdatePageCounter()
+{
+    if(ui_display->PagesLoaded()) {
+        ui->pageNmbr->setText(QString::number(ui_display->GetPageNumber()) + "/" + QString::number(ui_display->GetPageAmount()));
+        ui->navSlider->setMinimum(1);
+        ui->navSlider->setMaximum(ui_display->GetPageAmount());
+        ui->navSlider->setValue(ui_display->GetPageNumber());
+    } else {
+        ui->pageNmbr->setText("#/#");
+        ui->navSlider->setMinimum(0);
+        ui->navSlider->setMaximum(0);
+        ui->navSlider->setValue(0);
+    }
+
+}
+
+/// NAVIGATION SLOTS
+
+void TextMenu::NextPressed()
+{
+    if(ui_display->PagesLoaded())
+        ui_display->ScrollFrame(true);
+    UpdatePageCounter();
+}
+
+void TextMenu::PrevPressed()
+{
+    if(ui_display->PagesLoaded())
+        ui_display->ScrollFrame(false);
+    UpdatePageCounter();
+}
+
+void TextMenu::NavSliderMoved(int newValue)
+{
+    if(ui_display->PagesLoaded())
+        ui_display->GoToFrame(newValue);
+    UpdatePageCounter();
+}
+
+/// ANIMATION SLOTS
 
 void TextMenu::RunPressed()
 {
@@ -54,7 +96,8 @@ void TextMenu::uploadTextPressed(void)
         }
         else
         {
-
+            msgBox.setText("Uploading of text not implemented yet, check again later!!");
+            msgBox.exec();
         }
     }
     else

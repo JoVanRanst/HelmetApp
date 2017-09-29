@@ -11,6 +11,7 @@ AnimationCreation::AnimationCreation(QWidget *parent) :
     matrix = new LedMatrix::LedMatrix_main();
     ui->widget->setLayout(matrix);
 
+    connect(matrix,             SIGNAL(AnimationNmbrChanged(int)), this, SLOT(UpdatenavSlider(int)));
     connect(ui->navSlider,      SIGNAL(valueChanged(int)), this, SLOT(matrixPageSlider(int)));
     connect(ui->button_prev,    SIGNAL(pressed()), this, SLOT(matrixPagePrev()));
     connect(ui->button_next,    SIGNAL(pressed()), this, SLOT(matrixPageNext()));
@@ -37,6 +38,11 @@ void AnimationCreation::UpdatePageCounter()
         ui->navSlider->setValue(0);
     }
 
+}
+
+void AnimationCreation::UpdatenavSlider(int newValue)
+{
+    ui->navSlider->setValue(newValue);
 }
 
 void AnimationCreation::matrixPageSlider(int newValue)

@@ -10,6 +10,8 @@
 
 #include "ledmatrix_characters.h"
 
+/// CAN'T BE CHANGED IN THE CURRENT BUILD
+/// problems would occur with character data
 #define MATRIX_ROWS     8
 #define MATRIX_COLLUMS  40
 
@@ -50,7 +52,7 @@ namespace LedMatrix {
 		void StopAnimation();
 		void RunAnimation(double period_ms, bool loop = false);
     signals:
-        //void AnimationUpdateNr();
+        void AnimationNmbrChanged(int);
 
 	private:
 		void ScrollPage(bool NextPage);
@@ -60,6 +62,9 @@ namespace LedMatrix {
 	/// Text operations
 	/// ledmatrix_textanimation.cpp
 	public:
+        int NextFrame();
+        int PrevFrame();
+        int GotToFrame(unsigned int newPosition);
 		bool LoadText(QString text, bool MarqueeMode = true);
 		bool TextAnimationIsRunning() { return TextAnimationRunning; }
 		void StopTextAnimation();

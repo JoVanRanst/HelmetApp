@@ -18,10 +18,15 @@
 
 1. Textanimation should get some acces to untypable characters??
 
-2. Animation menu's (regular, text and sound) should get a scroll bar to access the animation screens
+-> Animation menu's (regular, text and sound) should get a scroll bar to access the animation screens
 
 *********************
 ** IDEA'S/ DOODLES **
 *********************
 
 -> Soundfile reading to stream a
+
+******************
+** DONE ALREADY **
+******************
+

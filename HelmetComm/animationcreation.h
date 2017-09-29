@@ -32,6 +32,7 @@ class AnimationCreation : public QWidget
         void exitMenu();
 
     private slots:
+        void UpdatenavSlider(int newValue);
         void matrixPageSlider(int newValue);
         void matrixPagePrev();
         void matrixPageNext();

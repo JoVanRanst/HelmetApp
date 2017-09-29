@@ -166,6 +166,7 @@ void LedMatrix_main::UpdateAnimationState()
 {
     if(LoopAnimation) {
         NextPage();
+        emit AnimationNmbrChanged(PageNmbr);
     } else {
         StopAnimation();
         return;
