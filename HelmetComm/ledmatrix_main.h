@@ -62,18 +62,10 @@ namespace LedMatrix {
 	/// Text operations
 	/// ledmatrix_textanimation.cpp
 	public:
-        int NextFrame();
-        int PrevFrame();
         int GotToFrame(unsigned int newPosition);
-		bool LoadText(QString text, bool MarqueeMode = true);
-		bool TextAnimationIsRunning() { return TextAnimationRunning; }
-		void StopTextAnimation();
-		void RunTextAnimation(double period_s, bool loop = false);
+        bool LoadText(QString text, bool MarqueeMode = true);
 	private:
-		void NextWordInText();
 		void NextMarqueePosition();
-	private slots:
-		void UpdateTextAnimState();
 
 	private:
 		// Animation members
@@ -86,15 +78,8 @@ namespace LedMatrix {
 		std::vector<Page>   		Pages;
 
 		// Text animation members
-		bool						TextAnimationRunning;
-		bool						LoopTextAnimation;
 		bool						TextMarqueeMode;
-		double              		text_period_timer_ms;
-		QTimer             		   *text_interval_timer;
         LedMatrix_Characters       *MatrixCharacters;
-
-		unsigned int 				SingleIndex;
-		std::vector<Page>			SingleWords;
 
 		unsigned int 				MarqueeIndex;
 		std::vector<std::bitset<8>>	MarqueeText;

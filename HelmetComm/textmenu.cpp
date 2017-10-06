@@ -43,21 +43,21 @@ void TextMenu::UpdatePageCounter()
 void TextMenu::NextPressed()
 {
     if(ui_display->PagesLoaded())
-        ui_display->ScrollFrame(true);
+        ui_display->NextPage();
     UpdatePageCounter();
 }
 
 void TextMenu::PrevPressed()
 {
     if(ui_display->PagesLoaded())
-        ui_display->ScrollFrame(false);
+        ui_display->PrevPage();
     UpdatePageCounter();
 }
 
 void TextMenu::NavSliderMoved(int newValue)
 {
     if(ui_display->PagesLoaded())
-        ui_display->GoToFrame(newValue);
+        ui_display->GoToPage(newValue);
     UpdatePageCounter();
 }
 
@@ -65,11 +65,11 @@ void TextMenu::NavSliderMoved(int newValue)
 
 void TextMenu::RunPressed()
 {
-    if(ui_display->TextAnimationIsRunning()) {
+    if(ui_display->AnimationIsRunning()) {
         ui_display->StopAnimation();
         ui->runButton->setText("RUN");
     } else {
-        ui_display->RunTextAnimation(ui->periodSpinBox->value(), ui->loopButton->isChecked());
+        ui_display->RunAnimation(ui->periodSpinBox->value(), ui->loopButton->isChecked());
         ui->runButton->setText("STOP");
     }
 }
@@ -77,6 +77,7 @@ void TextMenu::RunPressed()
 void TextMenu::UpdatePressed()
 {
     ui_display->LoadText(ui->Textinput->text(), ui->scrollButton->isChecked());
+    UpdatePageCounter();
 }
 
 

@@ -43,7 +43,7 @@ namespace LedMatrix{
                     if(i<word.size()) {
                         EnumToMatrix(CharToEnum(word.at(i)), out);
                     } else { /// Truncate empty space
-                        if (Fillsize > 5) {
+                        if (Fillsize >= 5) {
                             EnumToMatrix(space_5, out);
                             Fillsize -= 5;
                         } else {

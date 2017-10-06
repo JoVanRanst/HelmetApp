@@ -131,11 +131,11 @@ namespace LedMatrix {
                  {0b00111110}};
 
             const std::vector<std::bitset<8>> char_R =
-                {{0b01111111},
-                 {0b01001000},
-                 {0b01001100},
+                {{0b00110001},
                  {0b01001010},
-                 {0b00110001}};
+                 {0b01001100},
+                 {0b01001000},
+                 {0b01111111}};
 
             const std::vector<std::bitset<8>> char_S =
                 {{0b00100110},

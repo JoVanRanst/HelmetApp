@@ -7,6 +7,8 @@
 ******************
 
 1. Define animation file standard
+    -> Regular animation = simply animations AND text windows. Number of frames, ID, ...
+    -> Marquee animation = one long window where the controller will pointer. Total width, ID, ...
 
 2. Create filehandler singlton class
 

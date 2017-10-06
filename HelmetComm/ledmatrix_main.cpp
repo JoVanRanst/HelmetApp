@@ -24,9 +24,10 @@ LedMatrix::LedMatrix_main::LedMatrix_main(bool BlockUserInput)
 			FullMatrix[i][j]->setStyleSheet("QPushButton{border-width: 1px;\
 											border-style: none;\
 											border-radius: 1;\
+                                            border-color: #000000;\
 											padding: 1px;\
-											padding-left: 1px;\
-											padding-right: 1px;}");
+                                            padding-left: 2px;\
+                                            padding-right: 2px;}");
 			this->addWidget(FullMatrix[i][j], i, j, 1, 1);
 			if(BlockUserInput) {
 				connect(FullMatrix[i][j], SIGNAL(pressed()), this, SLOT(BlockUserInput()));
@@ -41,12 +42,7 @@ LedMatrix::LedMatrix_main::LedMatrix_main(bool BlockUserInput)
 	anim_interval_timer->setSingleShot(true);
 	connect(anim_interval_timer, SIGNAL(timeout()), this, SLOT(UpdateAnimationState()));
 
-	text_period_timer_ms = 0;
-	TextAnimationRunning = false;
-	text_interval_timer = new QTimer;
-	text_interval_timer->setSingleShot(true);
     MatrixCharacters = new LedMatrix_Characters();
-	connect(text_interval_timer, SIGNAL(timeout()), this, SLOT(UpdateTextAnimState()));
 }
 
 void LedMatrix::LedMatrix_main::BlockUserInput()
