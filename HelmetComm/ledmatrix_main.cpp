@@ -25,6 +25,8 @@ LedMatrix::LedMatrix_main::LedMatrix_main(bool BlockUserInput)
 											border-style: none;\
 											border-radius: 1;\
                                             border-color: #000000;\
+                                            color: #000000;\
+                                            background-color: #000000;\
 											padding: 1px;\
                                             padding-left: 2px;\
                                             padding-right: 2px;}");
