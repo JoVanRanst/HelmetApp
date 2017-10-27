@@ -8,12 +8,13 @@
 #include <QTimer>
 #include <QWidget>
 
-#include "ledmatrix_characters.h"
-
 /// CAN'T BE CHANGED IN THE CURRENT BUILD
 /// problems would occur with character data
 #define MATRIX_ROWS     8
 #define MATRIX_COLLUMS  40
+
+#include "ledmatrix_characters.h"
+
 
 namespace LedMatrix {
     struct Page{
@@ -62,7 +63,7 @@ namespace LedMatrix {
 	/// Text operations
 	/// ledmatrix_textanimation.cpp
 	public:
-        int GotToFrame(unsigned int newPosition);
+        int GoToFrame(unsigned int newPosition);
         bool LoadText(QString text, bool MarqueeMode = true);
 	private:
 		void NextMarqueePosition();

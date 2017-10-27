@@ -18,6 +18,9 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
         Pages.clear();
         MarqueeText.clear();
         /// TODO: handle marquee function
+        MatrixCharacters->StringToMatrix(text, &MarqueeText);
+        MarqueeIndex = 1;
+        GoToFrame(1);
 	} else {
 		QStringList list = text.split(QRegExp("\\s"));
         /// Check for inposible single words
@@ -35,7 +38,7 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
 
         Page NewPage;
         for(QStringList::Iterator it = list.begin(); it != list.end(); it++) {
-            MatrixCharacters->WordToMatrix(*it, &(NewPage.elem), MATRIX_COLLUMS);
+            MatrixCharacters->StringToMatrix(*it, &(NewPage.elem));
             Pages.push_back(NewPage);
             NewPage.elem.clear();
         }
@@ -44,6 +47,10 @@ bool LedMatrix_main::LoadText(QString text, bool MarqueeMode)
 	}
 
     return true;
+}
+
+int LedMatrix_main::GoToFrame(unsigned int newPosition) {
+
 }
 
 void LedMatrix_main::NextMarqueePosition()

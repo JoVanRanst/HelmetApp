@@ -31,27 +31,35 @@ namespace LedMatrix{
                 pun_equal, pun_plus, pun_number, pun_asterisk, pun_percentage
             };
 
-            LedMatrix_Characters()
+            explicit LedMatrix_Characters()
             {
 
             }
 
             /// Convertion functions
-            void WordToMatrix(QString word, std::vector<std::bitset<8>> *out, unsigned int MatrixWidth) {
-                int Fillsize = MatrixWidth - (5*word.size());
-                for(int i = 0; i < 8; i++) {
-                    if(i<word.size()) {
-                        EnumToMatrix(CharToEnum(word.at(i)), out);
-                    } else { /// Truncate empty space
-                        if (Fillsize >= 5) {
-                            EnumToMatrix(space_5, out);
-                            Fillsize -= 5;
-                        } else {
-                            if(Fillsize == 4) EnumToMatrix(space_4, out);
-                            else if(Fillsize == 3) EnumToMatrix(space_3, out);
-                            else if(Fillsize == 2) EnumToMatrix(space_2, out);
-                            else if(Fillsize == 1) EnumToMatrix(space_1, out);
+            void StringToMatrix(QString text, std::vector<std::bitset<MATRIX_ROWS>> *out) {
+                if(MATRIX_COLLUMS >= (5*text.size())) { /// Single display to fill, keep minimal size intact
+                    int Fillsize = MATRIX_COLLUMS - (5*text.size());
+                    for(int i = 0; i < 8; i++) {
+                        if(i<text.size()) {
+                            EnumToMatrix(CharToEnum(text.at(i)), out);
+                        } else { /// Truncate empty space
+                            if (Fillsize >= 5) {
+                                EnumToMatrix(space_5, out);
+                                Fillsize -= 5;
+                            } else {
+                                if(Fillsize == 4) EnumToMatrix(space_4, out);
+                                else if(Fillsize == 3) EnumToMatrix(space_3, out);
+                                else if(Fillsize == 2) EnumToMatrix(space_2, out);
+                                else if(Fillsize == 1) EnumToMatrix(space_1, out);
+                            }
                         }
+                    }
+                } else {
+                    /// More tekst than can be shown on one display
+                    int Characters = text.size();
+                    for(int i = 0; i < Characters; i++) {
+                        EnumToMatrix(CharToEnum(text.at(i)), out);
                     }
                 }
             }
